@@ -25,19 +25,21 @@ let tags = {
 const defaultMenu = {
 	
   before: `
-╔════「 *👒 𝐉 𝐀 𝐂 𝐊 𝐁☠𝐓©* 」
-║  Yohoho❗, %name!
-║
-║ *Total cmds:* 121
-║ *Prefix:* Global
-║ *Owner:* %me
-║
-║ *Date:* %week, %date
-║ *Time:* %time
-║
-║ *Database:* %rtotalreg of %totalreg
-║ *Github:* https://youtu.be/qc1D2a233oU
-╚═════
+Ohayou 🤗, %name!
+
+*Star my repo in github* 🌻
+https://github.com/Jack1521
+
+*My whatsapp* 🌟
+https://wa.me/989035024059
+
+*_DON'T PM OR CALL THE BOT_* 💢
+
+*NO SPAMMING* ❤
+
+Bot prefix (global) 💫
+
+ᎬᏁjᎾᎽ🍨
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
   body: '🦄 %cmd',
