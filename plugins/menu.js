@@ -1,67 +1,60 @@
 let fs = require('fs')
 let path = require('path')
-let fetch = require('node-fetch')
 let levelling = require('../lib/levelling')
-const thumb = fs.readFileSync('./src/thumb.jpg')
 let tags = {
-  'main': 'MAIN',
-  'info': 'INFO',
-  'game': 'GAME',
-  'xp': 'EXP & LIMIT',
-  'sticker': 'STICKER',
-  'admin': 'ADMIN',
-  'group': 'GROUP',
-  'premium': 'PREMIUM',
-  'anime': 'ANIME',
-  'internet': 'INTERNET',
-  'nulis': 'LOGO & WRITING',
-  'downloader': 'DOWNLOADER',
-  'tools': 'TOOLS',
-  'fun': 'FUN',
-  'audio': 'AUDIO',
-  'maker': 'MAKER',
-  'videomaker': 'VIDEOMAKER',
-  'database': 'DATABASE',
-  'exp': 'REGISTER',
-  'vote': 'VOTING',
-  'absen': 'ABSENT',
-  'jadibot': 'GET BOT',
-  'anonymous': 'ANONYMOUS CHAT',
-  'owner': 'OWNER',
-  'host': 'HOST',
-  'advanced': 'ADVANCED',
+  'main': '𝙈𝘼𝙄𝙉🎾',
+  'game': '𝙂𝘼𝙈𝙀🎲',
+  'xp': '𝙓𝙋 & 𝙇𝙄𝙈𝙄𝙏+',
+  'sticker': '𝙎𝙏𝙄𝘾𝙆𝙀𝙍😜',
+  'admin': '𝘼𝘿𝙈𝙄𝙉 𝙎𝙀𝘾𝙏𝙄𝙊𝙉',
+  'group': '𝙂𝙍𝙊𝙐𝙋 𝙈𝙀𝙉𝙐',
+  'internet': '𝙄𝙉𝙏𝙀𝙍𝙉𝙀𝙏🌐',
+  'downloader': '𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 𝙈𝙀𝙉𝙐⬇️',
+  'tools': '𝙏𝙊𝙊𝙇𝙎🛠️',
+  'database': '𝘿𝘼𝙏𝘼𝘽𝘼𝙎𝙀',
+  'vote': '𝙑𝙊𝙏𝙀🗳️',
+  'owner': '𝙊𝙒𝙉𝙀𝙍 𝙎𝙀𝘾𝙏𝙄𝙊𝙉',
+  'host': '𝙃𝙊𝙎𝙏🌱',
+  'info': '𝘽𝙊𝙏 𝙄𝙉𝙁𝙊🤖',
+  'maker': '𝙈𝘼𝙆𝙀𝙍🧙‍♂️',
+  'audio': '𝘼𝙐𝘿𝙄𝙊🔊',
+  'exp': '𝙀𝙓𝙋➕',
+  
+  
 }
 const defaultMenu = {
+	
   before: `
-
-🙏🏻 Namaste %name, how can i help you?
-
-🪵 Left: *%limit Limit*
-🎗️ Role: *%role*
-🛕 Level: *%level* 
-☕ Total XP: *%totalexp*
-
-〽️ Prefix: *%p*
-📅 Date: *%week, %date*
-💠 Github: github.com/itsajaygaur/tokio-wabot
-
-👇🏻 All usable commands are listed below 
-
+╔════「 *👒 𝐉 𝐀 𝐂 𝐊 𝐁☠𝐓©* 」
+║  Yohoho❗, %name!
+║
+║ *Total cmds:* 121
+║ *Prefix:* Global
+║ *Owner:* %me
+║
+║ *Date:* %week, %date
+║ *Time:* %time
+║
+║ *Database:* %rtotalreg of %totalreg
+║ *Github:* https://github.com/Jack1521
+╚═════
 %readmore`.trimStart(),
-  header: '        *━━❰･%category･❱━━*',
-  body: ' 🌠 %cmd %islimit %isPremium',
-  footer: ' ',
-  after: `🌟 *Hope you're enjoying bot, have a great day* 
+  header: '╭─「 %category 」',
+  body: '🦄 %cmd',
+  footer: '╰────\n',
+  after: `
+*%npmname@^%version*
+${'```%npmdesc```'}
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
-    let { exp, limit, level, role } = global.db.data.users[m.sender]
+    let { exp, limit, level } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let name = conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
-    let locale = 'en'
+    let locale = 'id'
     // d.getTimeZoneOffset()
     // Offset -420 is 18.00
     // Offset    0 is  0.00
@@ -102,7 +95,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
         prefix: 'customPrefix' in plugin,
         limit: plugin.limit,
-        premium: plugin.premium,
         enabled: !plugin.disabled,
       }
     })
@@ -121,10 +113,10 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       ...Object.keys(tags).map(tag => {
         return header.replace(/%category/g, tags[tag]) + '\n' + [
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
-            return  menu.help.map(help => {
+            return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
                 .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+                .replace(/%isPremium/g, menu.limit ? '(Premium)' : '')
                 .trim()
             }).join('\n')
           }),
@@ -146,17 +138,17 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       totalexp: exp,
       xp4levelup: max - exp,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
-      level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.send2ButtonImg(m.chat, thumb, `🏮 I\'m ${conn.user.name}`, text.trim(), 'owner', '-owner', 'rules', '.rules', m)
+    conn.reply(m.chat, text.trim(), m)
   } catch (e) {
     conn.reply(m.chat, 'Sorry, the menu is in error', m)
     throw e
   }
 }
-handler.help = ['help/menu/?']
+handler.help = ['menu', 'help']
 handler.tags = ['main']
 handler.command = /^(menu|help|\?)$/i
 handler.owner = false
