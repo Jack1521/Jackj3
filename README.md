@@ -2,7 +2,7 @@
 
 Narutomo And Tokio Wabot Edited
 
-Special thanks to Ajay,BBBA and Narutomo 🌟
+Special thanks to Ajay,BBBA and Narutomo🌟
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Jack1521/Jackj3)
 
