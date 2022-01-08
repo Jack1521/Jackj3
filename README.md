@@ -166,9 +166,9 @@ Author / Creator | Editor
 
 
 
-Don't forget to give it a star 🌟
+Please Go Support Them 🌟
 
-Best regards: tokio
+Best regards: Jack
 
 
 
