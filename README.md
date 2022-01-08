@@ -50,7 +50,7 @@ ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
 git clone https://github.com/Jack1521/Jackj3
-cd tokio-wabot
+cd Jackj3
 npm install
 npm update
 ```
@@ -66,7 +66,7 @@ npm update
 
 ```bash
 git clone https://github.com/Jack1521/Jackj3
-cd tokio-wabot
+cd Jackj3
 npm install
 npm update
 ```
