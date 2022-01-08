@@ -1,8 +1,8 @@
 # JackBot
 
-English version of wabot-aq
+Narutomo And Tokio Wabot Edited
 
-Don't forget to give it a star  🌟
+Special thanks to Ajay,BBBA and Narutomo 🌟
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Jack1521/Jackj3)
 
@@ -14,7 +14,7 @@ apt install git -y
 apt install nodejs -y
 apt install ffmpeg -y
 apt install imagemagick -y
-git clone https://github.com/itsajaygaur/tokio-wabot
+git clone https://github.com/Jack1521/Jackj3
 cd tokio-wabot
 npm install
 npm update
@@ -65,7 +65,7 @@ npm update
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/itsajaygaur/tokio-wabot
+git clone https://github.com/Jack1521/Jackj3
 cd tokio-wabot
 npm install
 npm update
