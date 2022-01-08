@@ -4,7 +4,6 @@ Narutomo And Tokio Wabot Edited
 
 Special thanks to Ajay,BBBA and Narutomo 🌟
 
-<a href="#" class="button danger">
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Jack1521/Jackj3)
 
 ## FOR TERMUX/UBUNTU/SSH USER
