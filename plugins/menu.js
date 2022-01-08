@@ -36,7 +36,7 @@ const defaultMenu = {
 ║ *Time:* %time
 ║
 ║ *Database:* %rtotalreg of %totalreg
-║ *Github:* https://github.com/Jack1521
+║ *Github:* https://youtu.be/qc1D2a233oU
 ╚═════
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
